@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="LAB héritage – Giải pháp tổng thể phục dựng, phục chế di sản, công trình kiến trúc, villa & resort cao cấp theo chuẩn Châu Âu tại Việt Nam."/>
+  <meta name="keywords" content="phục hồi biệt thự cổ, bảo tồn kiến trúc resort, xử lý bề mặt đá cao cấp, phục dựng di sản, LAB heritage, ALMA FRC, KEIM"/>
+  <meta property="og:title" content="LAB héritage – Phục dựng Ký ức Di sản – Kiến trúc"/>
+  <meta property="og:description" content="Đơn vị tiên phong phục dựng – phục chế di sản và công trình cao cấp theo chuẩn Châu Âu tại Việt Nam."/>
+  <meta property="og:type" content="website"/>
+  <title>LAB héritage – Phục dựng Ký ức Di sản – Kiến trúc</title>  <link rel="icon" href="assets/images/icon-logo.png" type="image/png"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="LAB héritage — trang chủ">
+      <img src="assets/images/icon-logo.png" alt="LAB héritage" class="nav-logo-img"/>
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">LAB <em>héritage</em></span>
+        <span class="nav-logo-slogan">Conserver la beauté</span>
+      </div>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about"     data-t="nav_about">Về Chúng Tôi</a></li>
+      <li><a href="#services"  data-t="nav_services">Dịch Vụ</a></li>
+      <li><a href="#standards" data-t="nav_standards">Chuẩn Mực</a></li>
+      <li><a href="#portfolio" data-t="nav_portfolio">Dự Án</a></li>
+      <li><a href="#insights"  data-t="nav_insights">Kiến Thức</a></li>
+      <li><a href="#contact"   data-t="nav_contact">Liên Hệ</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button class="lang-btn active" data-lang="vi" aria-label="Tiếng Việt">VI</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      </div>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <a href="#about"     data-t="nav_about">Về Chúng Tôi</a>
+  <a href="#services"  data-t="nav_services">Dịch Vụ</a>
+  <a href="#standards" data-t="nav_standards">Chuẩn Mực</a>
+  <a href="#portfolio" data-t="nav_portfolio">Dự Án</a>
+  <a href="#insights"  data-t="nav_insights">Kiến Thức</a>
+  <a href="#contact"   data-t="nav_contact">Liên Hệ</a>
+  <div class="lang-toggle" style="margin-top:2rem">
+    <button class="lang-btn active" data-lang="vi">VI</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" aria-label="Hero section">
+  <div class="hero-bg">
+    <img src="assets/images/bg.png" alt="..."/> 
+    <!--
+      ┌──────────────────────────────────────────────────────┐
+      │  CHÈN ẢNH / VIDEO HERO TẠI ĐÂY                     │
+      │  <img src="assets/images/hero-bg.jpg" alt="..."/>   │
+      │  hoặc <video autoplay loop muted playsinline>        │
+      └──────────────────────────────────────────────────────┘
+    -->
+    <div class="img-placeholder" style="background:linear-gradient(135deg,#1a1a18,#0d0e0c);">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8,21 12,17 16,21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <p>Chèn ảnh/video cinematic<br>tại đây (Hero Background)</p>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-t="hero_eyebrow">LAB héritage — Conserver la beauté</div>
+    <h1 class="hero-title">
+      <span class="ht-part1" data-t="hero_t1">Phục dựng</span>
+      <em class="ht-part2" data-t="hero_t2">Ký ức</em>
+      <span class="ht-part3" data-t="hero_t3">Di sản – Kiến trúc</span>
+    </h1>
+    <p class="hero-subtitle" data-t="hero_subtitle">Hơn 5 năm tiên phong kết hợp nghệ thuật thủ công tinh xảo và công nghệ hiện đại trong phục dựng – phục chế di sản, công trình cao cấp.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <span data-t="hero_cta">Đặt lịch khảo sát &amp; Tư vấn</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+      <a href="#portfolio" class="btn-outline" data-t="hero_cta2">Xem Dự Án</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-t="hero_scroll">Cuộn xuống</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══ BEFORE / AFTER ═══ -->
+<section id="before-after" aria-label="Before and after comparison">
+  <div class="before-after-wrap">
+    <div class="ba-info">
+      <div class="section-label reveal" data-t="ba_label">Trải Nghiệm Trước &amp; Sau</div>
+      <h2 class="section-title reveal reveal-delay-1" data-t="ba_title">Sự khác biệt <em>ngoạn mục</em></h2>
+      <span class="gold-line reveal reveal-delay-2"></span>
+      <p class="reveal reveal-delay-3" style="color:rgba(245,242,236,0.6);font-size:0.9rem;max-width:420px;" data-t="ba_desc">Kéo thanh trượt để cảm nhận sự chuyển đổi kỳ diệu.</p>
+      <p class="reveal reveal-delay-4" style="margin-top:1.5rem;font-size:0.72rem;color:rgba(184,150,46,0.7);letter-spacing:0.2em;text-transform:uppercase;" data-t="ba_note">← Kéo để so sánh →</p>
+    </div>
+    <div class="ba-slider-container" role="img" aria-label="Before and after comparison slider">
+      <div class="ba-before">
+        <!-- ┌── CHÈN ẢNH TRƯỚC ──┐ -->
+        <div class="img-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><p>Ảnh TRƯỚC phục hồi</p></div>
+      </div>
+      <div class="ba-after">
+        <!-- ┌── CHÈN ẢNH SAU ──┐ -->
+        <div class="img-placeholder" style="background:#222220;"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg><p>Ảnh SAU phục hồi</p></div>
+      </div>
+      <div class="ba-handle">
+        <div class="ba-handle-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="9,5 6,12 9,19"/><polyline points="15,5 18,12 15,19"/></svg>
+        </div>
+      </div>
+      <div class="ba-labels">
+        <div class="ba-label" data-t="ba_before">Trước</div>
+        <div class="ba-label" data-t="ba_after">Sau</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STATS ═══ -->
+<section id="stats" aria-label="Key statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number" data-t="stat1_num">10.000+</div><div class="stat-label" data-t="stat1_label">Vật phẩm đã xử lý</div></div>
+      <div class="stat-item reveal reveal-delay-1"><div class="stat-number" data-t="stat2_num">5+</div><div class="stat-label" data-t="stat2_label">Năm kinh nghiệm</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-number" data-t="stat3_num">50+</div><div class="stat-label" data-t="stat3_label">Nhân sự chuyên nghiệp</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-number" data-t="stat4_num">5.000+</div><div class="stat-label" data-t="stat4_label">Khách hàng tin tưởng</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Images -->
+      <div class="about-img-wrap reveal">
+        <div class="about-img-main">
+          <!--
+            ┌──────────────────────────────────────────────────┐
+            │  ẢNH CHÍNH: assets/images/team1.png             │
+            │  Thay src để đổi ảnh, alt mô tả ngắn           │
+            └──────────────────────────────────────────────────┘
+          -->
+          <img src="assets/images/team1.png" alt="Đội ngũ LAB héritage" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="img-placeholder" style="min-height:480px;display:none;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <p>Chèn ảnh đội ngũ<br>hoặc xưởng sản xuất</p>
+          </div>
+        </div>
+        <div class="about-img-accent">
+          <!--
+            ┌──────────────────────────────────────────────────┐
+            │  ẢNH PHỤ: assets/images/team4.jpg              │
+            └──────────────────────────────────────────────────┘
+          -->
+          <img src="assets/images/team4.jpg" alt="LAB héritage công trình" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="img-placeholder" style="min-height:200px;display:none;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/></svg>
+            <p>Ảnh chi tiết</p>
+          </div>
+        </div>
+        <div class="about-gold-badge">
+          <strong>5+</strong>
+          <span data-t="about_badge_years">Năm&#10;Kinh nghiệm</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text">
+        <div class="section-label reveal" data-t="about_label">Về Chúng Tôi</div>
+        <h2 class="section-title reveal reveal-delay-1" id="about-title" data-t="about_title">Tiên phong <em>bảo tồn</em><br>giá trị nguyên bản</h2>
+        <span class="gold-line reveal reveal-delay-2"></span>
+        <p class="reveal reveal-delay-2" data-t="about_p1">LAB héritage là đơn vị tiên phong tại Việt Nam trong giải pháp phục dựng – phục chế về nguyên bản.</p>
+        <p class="reveal reveal-delay-3" data-t="about_p2">Với đội ngũ hơn 50 nhân sự được đào tạo bài bản theo quy trình Châu Âu, văn phòng tại TP.HCM và xưởng sản xuất tại Củ Chi hơn 2.000m².</p>
+        <p class="reveal reveal-delay-4" data-t="about_p3">Sản phẩm sử dụng 100% từ Châu Âu qua Tập đoàn ALMA F.R.C. (EPV) và KEIM — sơn khoáng số 1 thế giới từ Đức.</p>
+
+        <!-- ★ PARTNER HIGHLIGHT BOX ★ -->
+        <div class="partner-highlight reveal reveal-delay-3" role="note">
+          <div class="partner-highlight-flags">🇫🇷 🇩🇪</div>
+          <div class="partner-highlight-text">
+            <span data-t="about_partner_highlight">LAB héritage tự hào là <em>đối tác chiến lược và đơn vị độc quyền tại Việt Nam</em> của tập đoàn ALMA F.R.C 🇫🇷 và tập đoàn KEIM 🇩🇪</span>
+          </div>
+        </div>
+
+
+        <!-- Features -->
+        <div class="about-features reveal reveal-delay-3">
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,11 12,14 22,4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="about-feature-text"><strong data-t="about_f1_title">Quy trình Châu Âu</strong><span data-t="about_f1_sub">Đào tạo bởi chuyên gia EU</span></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="about-feature-text"><strong data-t="about_f2_title">Sản phẩm 100% EU</strong><span data-t="about_f2_sub">ALMA F.R.C. &amp; KEIM</span></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <div class="about-feature-text"><strong data-t="about_f3_title">Tiêu chuẩn quốc tế</strong><span data-t="about_f3_sub">ISO, ICOMOS, EN...</span></div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8,21 12,17 16,21"/></svg></div>
+            <div class="about-feature-text"><strong data-t="about_f4_title">Bảo hành dài hạn</strong><span data-t="about_f4_sub">Cam kết chất lượng</span></div>
+          </div>
+        </div>
+
+        <!-- Partners -->
+        <div class="partners-row reveal reveal-delay-4">
+          <div class="partners-label" data-t="partners_label">Đối Tác &amp; Nhà Cung Cấp Được Uỷ Quyền</div>
+          <div class="partners-list">
+            <div class="partner-badge">ALMA F.R.C.</div>
+            <div class="partner-badge">KEIM</div>
+            <div class="partner-badge">Cleanco VN</div>
+            <div class="partner-badge">ICOMOS</div>
+          </div>
+        </div>
+
+        <!-- ★ BRAND BUTTONS — dưới partners-row ★ -->
+        <div class="brand-buttons brand-buttons--full reveal reveal-delay-4">
+          <button class="brand-btn brand-btn--alma" id="btn-alma"
+                  aria-haspopup="dialog" aria-controls="modal-alma"
+                  data-scroll-to="alma-story">
+            <span class="brand-btn-flag">🇫🇷</span>
+            <span class="brand-btn-label">
+              <span class="btn-line1" data-t="about_brand_more">Tìm hiểu về</span>
+              <span class="btn-line2">ALMA F.R.C.</span>
+            </span>
+            <span class="brand-btn-arrow">→</span>
+          </button>
+          <button class="brand-btn brand-btn--keim" id="btn-keim"
+                  aria-haspopup="dialog" aria-controls="modal-keim"
+                  data-scroll-to="keim-story">
+            <span class="brand-btn-flag">🇩🇪</span>
+            <span class="brand-btn-label">
+              <span class="btn-line1" data-t="about_brand_more">Tìm hiểu về</span>
+              <span class="btn-line2">KEIM</span>
+            </span>
+            <span class="brand-btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CASE STUDIES ═══ -->
+<section id="case-studies" aria-labelledby="cs-title">
+  <div class="container">
+    <div class="section-label reveal" data-t="cs_label">Câu Chuyện Minh Chứng</div>
+    <h2 class="section-title reveal reveal-delay-1" id="cs-title" data-t="cs_title">Công trình <em>tiêu biểu</em> thế giới</h2>
+    <span class="gold-line reveal reveal-delay-2"></span>
+
+    <div class="cs-grid">
+      <!-- Card 1: ALMA F.R.C. -->
+      <article class="cs-card reveal reveal-delay-2" id="alma-story">
+        <div class="cs-card-img cs-card-img--alma">
+          <img src="assets/images/white-house.jpg" alt="..."/> 
+          <!--
+            ┌──────────────────────────────────────────────────┐
+            │  ẢNH NỀN: assets/images/alma-bg.png             │
+            │  Thay div.img-placeholder bằng <img> khi có ảnh │
+            └──────────────────────────────────────────────────┘
+          -->
+          <!-- <div class="img-placeholder cs-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7l-3-4H6L3 7"/>
+              <path d="M5 21V10.85M19 21V10.85"/>
+            </svg>
+            <p>Château de la Mercerie<br>Charente, France</p>
+          </div> -->
+          <div class="cs-card-badge cs-card-badge--alma">
+            <span>🇫🇷</span> ALMA F.R.C.
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-tag" data-t="cs_tag_heritage">Di Sản Thế Giới</div>
+          <h3 class="cs-card-title">Château de la Mercerie</h3>
+          <p class="cs-card-text" data-t="cs1_text">Lâu đài Château de la Mercerie tại Pháp đã được phục hồi hoàn hảo nhờ giải pháp bảo tồn của ALMA F.R.C. Dự án kết hợp kỹ thuật truyền thống và công nghệ hiện đại, do LAB héritage triển khai tại Việt Nam.</p>
+          <div class="cs-card-meta">
+            <span class="cs-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Charente, France</span>
+            <span class="cs-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> EPV Certified</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: KEIM -->
+      <article class="cs-card reveal reveal-delay-3" id="keim-story">
+        <div class="cs-card-img cs-card-img--keim">
+          <img src="assets/images/white-house.jpg" alt="..."/> 
+          <!--
+            ┌──────────────────────────────────────────────────┐
+            │  ẢNH NỀN: assets/images/keim-bg.png             │
+            │  Thay div.img-placeholder bằng <img> khi có ảnh │
+            └──────────────────────────────────────────────────┘
+          -->
+          <!-- <div class="img-placeholder cs-placeholder">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7l-3-4H6L3 7"/>
+              <path d="M5 21V10.85M19 21V10.85"/>
+            </svg>
+            <p>The White House<br>Washington D.C., USA</p>
+          </div> -->
+          <div class="cs-card-badge cs-card-badge--keim">
+            <span>🇩🇪</span> KEIM
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-tag" data-t="cs_tag_icon">Biểu Tượng Quốc Gia</div>
+          <h3 class="cs-card-title">The White House</h3>
+          <p class="cs-card-text" data-t="cs2_text">Nhà Trắng – biểu tượng nước Mỹ – sử dụng sơn khoáng KEIM để bảo vệ bề mặt, với độ bền trên 100 năm, thoát ẩm vượt trội và không VOC. LAB héritage là đối tác độc quyền tại Việt Nam.</p>
+          <div class="cs-card-meta">
+            <span class="cs-meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Washington D.C., USA</span>
+            <span class="cs-meta-item" data-t="cs_keim_durability"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> 100+ năm bền vững</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label reveal" data-t="svc_label">Dịch Vụ Chuyên Biệt</div>
+        <h2 class="section-title reveal reveal-delay-1" id="services-title" data-t="svc_title">Giải pháp <em>toàn diện</em><br>cho mọi công trình</h2>
+      </div>
+      <p class="reveal reveal-delay-2" style="color:rgba(245,242,236,0.55);font-size:0.88rem;align-self:end;padding-bottom:0.5rem;" data-t="svc_subtitle">Từ di sản văn hóa đến villa nghỉ dưỡng, chúng tôi mang đến giải pháp phục dựng – phục chế chuyên sâu.</p>
+    </div>
+    <div class="services-grid reveal reveal-delay-1">
+      <div class="service-card" tabindex="0" role="article">
+        <div class="service-num">01</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7l-3-4H6L3 7"/><path d="M5 21V10.85M19 21V10.85"/></svg></div>
+        <h3 class="service-title" data-t="svc1_title">Bảo Tồn Di Sản</h3>
+        <p class="service-desc" data-t="svc1_desc">Quy trình và giải pháp chuyên biệt cho các công trình mang yếu tố lịch sử, văn hóa.</p>
+        <div class="service-tags"><span class="service-tag">EN 16096</span><span class="service-tag">ICOMOS</span><span class="service-tag" data-t="svc1_tag3">Patina</span></div>
+        <a href="#contact" class="service-link"><span data-t="svc_more">Tìm hiểu thêm</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></a>
+      </div>
+      <div class="service-card" tabindex="0" role="article">
+        <div class="service-num">02</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <h3 class="service-title" data-t="svc2_title">Phục Hồi Villa &amp; Resort</h3>
+        <p class="service-desc" data-t="svc2_desc">Giải pháp toàn diện cho biệt thự, khu nghỉ dưỡng cao cấp — cải tạo nội thất, làm mới kiến trúc ngoại thất.</p>
+        <div class="service-tags"><span class="service-tag" data-t="svc2_tag1">Nội Thất</span><span class="service-tag" data-t="svc2_tag2">Ngoại Thất</span><span class="service-tag">KEIM</span></div>
+        <a href="#contact" class="service-link"><span data-t="svc_more">Tìm hiểu thêm</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></a>
+      </div>
+      <div class="service-card" tabindex="0" role="article">
+        <div class="service-num">03</div>
+        <div class="service-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg></div>
+        <h3 class="service-title" data-t="svc3_title">Xử Lý Vật Liệu Cao Cấp</h3>
+        <p class="service-desc" data-t="svc3_desc">Chuyên môn sâu về đá, gỗ, kim loại, kính, vải, da, nhựa composite theo chuẩn kỹ thuật Châu Âu.</p>
+        <div class="service-tags"><span class="service-tag" data-t="svc3_tag1">Đá &amp; Gỗ</span><span class="service-tag" data-t="svc3_tag2">Kim Loại</span><span class="service-tag">ALMA F.R.C.</span></div>
+        <a href="#contact" class="service-link"><span data-t="svc_more">Tìm hiểu thêm</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STANDARDS ═══ — Sau Services, trước Portfolio -->
+<section id="standards" aria-labelledby="standards-title">
+  <div class="container">
+    <div class="section-label reveal" data-t="std_label">Chuẩn Mực Quốc Tế</div>
+    <h2 class="section-title reveal reveal-delay-1" id="standards-title" data-t="std_title">Cam kết <em>chuẩn mực</em><br>quốc tế</h2>
+    <p class="reveal reveal-delay-2" style="color:rgba(245,242,236,0.55);font-size:0.88rem;max-width:600px;" data-t="std_subtitle">Mọi quy trình của LAB héritage được thực hiện theo các tiêu chuẩn quốc tế nghiêm ngặt nhất.</p>
+    <!-- Standards grid rendered by JS -->
+    <div class="standards-grid" id="standards-grid" role="list" aria-label="International standards"></div>
+  </div>
+</section>
+
+
+<!-- ═══ PORTFOLIO ═══ -->
+<section id="portfolio" aria-labelledby="portfolio-title">
+  <div class="container">
+    <div class="section-label reveal" data-t="pf_label">Danh Mục Dự Án</div>
+    <h2 class="section-title reveal reveal-delay-1" id="portfolio-title" data-t="pf_title">Công trình <em>tiêu biểu</em></h2>
+    <div class="portfolio-filter reveal reveal-delay-2" role="group" aria-label="Portfolio filters">
+      <button class="filter-btn active" data-filter="all"      data-t="pf_all">Tất cả</button>
+      <button class="filter-btn" data-filter="heritage" data-t="pf_heritage">Di Sản</button>
+      <button class="filter-btn" data-filter="resort"   data-t="pf_resort">Resort</button>
+      <button class="filter-btn" data-filter="villa"    data-t="pf_villa">Villa</button>
+      <button class="filter-btn" data-filter="civil"    data-t="pf_civil">Dân Dụng</button>
+    </div>
+    <div class="portfolio-grid" id="portfolio-grid" role="list" aria-label="Project portfolio"></div>
+  </div>
+</section>
+
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-label reveal" data-t="proc_label">Quy Trình</div>
+    <h2 class="section-title reveal reveal-delay-1" id="process-title" data-t="proc_title">Năm bước <em>chuẩn mực</em><br>Châu Âu</h2>
+    <div class="process-grid">
+      <div class="process-step reveal"><div class="process-step-num">01</div><h3 class="process-step-title" data-t="proc_s1_title">Khảo Sát &amp; Đánh Giá</h3><p class="process-step-desc" data-t="proc_s1_desc">Lấy mẫu, phân tích vật liệu theo tiêu chuẩn EN 16096, ICOMOS.</p></div>
+      <div class="process-step reveal reveal-delay-1"><div class="process-step-num">02</div><h3 class="process-step-title" data-t="proc_s2_title">Vệ Sinh Chuyên Sâu</h3><p class="process-step-desc" data-t="proc_s2_desc">Loại bỏ chất bẩn, rêu mốc bằng phương pháp phù hợp.</p></div>
+      <div class="process-step reveal reveal-delay-2"><div class="process-step-num">03</div><h3 class="process-step-title" data-t="proc_s3_title">Phục Dựng &amp; Phục Chế</h3><p class="process-step-desc" data-t="proc_s3_desc">Can thiệp kỹ thuật chuyên sâu, phục hồi cấu trúc hư hại.</p></div>
+      <div class="process-step reveal reveal-delay-3"><div class="process-step-num">04</div><h3 class="process-step-title" data-t="proc_s4_title">Bảo Dưỡng &amp; Bảo Vệ</h3><p class="process-step-desc" data-t="proc_s4_desc">Áp dụng lớp bảo vệ bền vững từ KEIM và ALMA F.R.C.</p></div>
+      <div class="process-step reveal reveal-delay-4"><div class="process-step-num">05</div><h3 class="process-step-title" data-t="proc_s5_title">Bàn Giao &amp; Bảo Hành</h3><p class="process-step-desc" data-t="proc_s5_desc">Nghiệm thu chi tiết, hướng dẫn chăm sóc, cam kết bảo hành dài hạn.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ INSIGHTS ═══ -->
+<section id="insights" aria-labelledby="insights-title">
+  <div class="container">
+    <div class="section-label reveal" data-t="ins_label">Kiến Thức &amp; Tư Liệu</div>
+    <h2 class="section-title reveal reveal-delay-1" id="insights-title" data-t="ins_title">Góc nhìn <em>chuyên gia</em></h2>
+    <div class="insights-grid">
+      <article class="insight-card reveal reveal-delay-1" data-id="1" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="insight-img"><div class="img-placeholder" style="min-height:200px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><p>Ảnh bài viết 1<br><!-- ┌── CHÈN ẢNH TẠI ĐÂY ──┐ --></p></div></div>
+        <div class="insight-body">
+          <div class="insight-cat" data-t="ins1_cat">Hướng Dẫn</div>
+          <h3 class="insight-title" data-t="ins1_title">Hướng Dẫn Chăm Sóc Công Trình Sau Khi Phục Hồi</h3>
+          <div class="insight-meta" data-t="ins1_date">15 Tháng 3, 2025</div>
+          <span class="insight-link"><span data-t="ins_read">Đọc tiếp</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </article>
+      <article class="insight-card reveal reveal-delay-2" data-id="2" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="insight-img"><div class="img-placeholder" style="min-height:200px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><p>Ảnh bài viết 2</p></div></div>
+        <div class="insight-body">
+          <div class="insight-cat" data-t="ins2_cat">Kỹ Thuật</div>
+          <h3 class="insight-title" data-t="ins2_title">Xử Lý Bề Mặt Đá Cao Cấp: Từ Patina Đến Bảo Tồn Hiện Đại</h3>
+          <div class="insight-meta" data-t="ins2_date">28 Tháng 2, 2025</div>
+          <span class="insight-link"><span data-t="ins_read">Đọc tiếp</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </article>
+      <article class="insight-card reveal reveal-delay-3" data-id="3" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="insight-img"><div class="img-placeholder" style="min-height:200px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg><p>Ảnh bài viết 3</p></div></div>
+        <div class="insight-body">
+          <div class="insight-cat" data-t="ins3_cat">Case Study</div>
+          <h3 class="insight-title" data-t="ins3_title">Château de la Mercerie — Hành Trình Phục Chế "Versailles Nhỏ"</h3>
+          <div class="insight-meta" data-t="ins3_date">10 Tháng 1, 2025</div>
+          <span class="insight-link"><span data-t="ins_read">Đọc tiếp</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="section-label reveal" data-t="ct_label">Liên Hệ</div>
+        <h2 class="contact-info-title reveal reveal-delay-1" id="contact-title" data-t="ct_title">Bắt đầu <em>dự án</em><br>của bạn</h2>
+        <p class="contact-tagline reveal reveal-delay-2" data-t="ct_tagline">"Việc tưởng như không thể là công việc hàng ngày của chúng tôi"</p>
+        <div class="contact-items reveal reveal-delay-2">
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="contact-item-label" data-t="ct_addr_label">Địa Chỉ</div><div class="contact-item-val" data-t="ct_addr">37/20 Nguyễn Minh Hoàng, P. Bảy Hiền, TP. Hồ Chí Minh</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.17h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 6.29 6.29l1.16-1.16a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="contact-item-label" data-t="ct_phone_label">Hotline</div><div class="contact-item-val"><a href="tel:+84862043042" style="color:inherit">+84 862 043 042 — Mr. Thiên Tú</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="contact-item-label" data-t="ct_email_label">Email</div><div class="contact-item-val"><a href="mailto:dotrongthientu@labheritage.com.vn" style="color:inherit">dotrongthientu@labheritage.com.vn</a></div></div>
+          </div>
+        </div>
+        <div class="map-embed reveal reveal-delay-3">
+          <!--
+            ┌──────────────────────────────────────────────────────┐
+            │  CHÈN GOOGLE MAPS IFRAME TẠI ĐÂY                   │
+            └──────────────────────────────────────────────────────┘
+          -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62706.24515786799!2d106.649177!3d10.800563!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752900738897a5%3A0x1db482764c2bb725!2sLAB%20h%C3%A9ritage%20-%20Conserver%20la%20beaut%C3%A9!5e0!3m2!1svi!2sus!4v1779291031177!5m2!1svi!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="img-placeholder" style="height:100%;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><p>Chèn Google Maps Iframe tại đây</p></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group"><label for="name" data-t="ct_form_name">Họ và tên</label><input type="text" id="name" name="name" required data-tp="ct_form_name" placeholder="Họ và tên"/></div>
+            <div class="form-group"><label for="phone" data-t="ct_form_phone">Số điện thoại</label><input type="tel" id="phone" name="phone" data-tp="ct_form_phone" placeholder="Số điện thoại"/></div>
+          </div>
+          <div class="form-group"><label for="email" data-t="ct_form_email">Địa chỉ email</label><input type="email" id="email" name="email" required data-tp="ct_form_email" placeholder="Địa chỉ email"/></div>
+          <div class="form-group">
+            <label for="service" data-t="ct_form_service">Dịch vụ quan tâm</label>
+            <select id="service" name="service">
+              <option value="" data-t="ct_svc_opt0">— Chọn dịch vụ —</option>
+              <option value="heritage" data-t="ct_svc_opt1">Bảo tồn di sản</option>
+              <option value="villa"    data-t="ct_svc_opt2">Phục hồi Villa &amp; Resort</option>
+              <option value="material" data-t="ct_svc_opt3">Xử lý vật liệu cao cấp</option>
+              <option value="other"    data-t="ct_svc_opt4">Khác</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message" data-t="ct_form_msg">Nội dung</label><textarea id="message" name="message" required data-tp="ct_form_placeholder" placeholder="Mô tả công trình và yêu cầu của bạn..."></textarea></div>
+          <div class="form-submit"><button type="submit" class="btn-submit" data-t="ct_submit">Gửi Yêu Cầu Tư Vấn</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-text">LAB <span>héritage</span></div>
+        <div class="footer-slogan" data-t="ft_slogan">Conserver la beauté</div>
+        <p class="footer-desc" data-t="ft_desc">Đơn vị tiên phong phục dựng – phục chế di sản, công trình kiến trúc và vật phẩm cao cấp theo chuẩn Châu Âu tại Việt Nam.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-t="ft_nav">Điều Hướng</div>
+        <ul class="footer-links">
+          <li><a href="#about"     data-t="nav_about">Về Chúng Tôi</a></li>
+          <li><a href="#services"  data-t="nav_services">Dịch Vụ</a></li>
+          <li><a href="#standards" data-t="std_label">Chuẩn Mực</a></li>
+          <li><a href="#portfolio" data-t="nav_portfolio">Dự Án</a></li>
+          <li><a href="#insights"  data-t="nav_insights">Kiến Thức</a></li>
+          <li><a href="#contact"   data-t="nav_contact">Liên Hệ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-t="ft_svc">Dịch Vụ</div>
+        <ul class="footer-links">
+          <li><a href="#services" data-t="svc1_title">Bảo Tồn Di Sản</a></li>
+          <li><a href="#services" data-t="svc2_title">Phục Hồi Villa &amp; Resort</a></li>
+          <li><a href="#services" data-t="svc3_title">Xử Lý Vật Liệu Cao Cấp</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-t="ft_contact">Liên Hệ</div>
+        <ul class="footer-links">
+          <li><a href="tel:+84862043042">+84 862 043 042</a></li>
+          <li><a href="mailto:dotrongthientu@labheritage.com.vn">dotrongthientu@labheritage.com.vn</a></li>
+          <li><a href="#contact" style="font-size:0.75rem;line-height:1.6;">37/20 Nguyễn Minh Hoàng,<br>P. Bảy Hiền, TP.HCM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy" data-t="ft_copy">© 2025 LAB héritage. Bảo lưu mọi quyền.</p>
+      <p class="footer-standards">EN 16096 · EN 16095 · ICOMOS · ISO 15686 · ASTM G1 · KEIM · ALMA F.R.C.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════ -->
+
+<!-- Project Modal -->
+<div class="modal-overlay modal-centered" id="project-modal" role="dialog" aria-modal="true">
+  <div class="modal modal--md">
+    <button class="modal-close" aria-label="Đóng" data-aria-label-t="modal_close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-img"><div class="img-placeholder" style="min-height:260px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><p>Ảnh dự án</p></div></div>
+    <div class="modal-body">
+      <div class="modal-cat"></div>
+      <h3 class="modal-title"></h3>
+      <div class="modal-sections"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ALMA F.R.C. Modal -->
+<div class="modal-overlay" id="modal-alma" role="dialog" aria-modal="true" aria-labelledby="alma-modal-name">
+  <div class="modal modal--md">
+    <button class="modal-close" aria-label="Đóng" data-aria-label-t="modal_close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="brand-modal-header">
+      <div class="brand-modal-flag">🇫🇷</div>
+      <div class="brand-modal-name" id="alma-modal-name">ALMA F.R.C.</div>
+      <div class="brand-modal-tagline"></div>
+    </div>
+    <div class="brand-modal-body">
+      <div class="brand-stat-row"></div>
+      <div class="brand-sections"></div>
+    </div>
+  </div>
+</div>
+
+<!-- KEIM Modal -->
+<div class="modal-overlay" id="modal-keim" role="dialog" aria-modal="true" aria-labelledby="keim-modal-name">
+  <div class="modal modal--md">
+    <button class="modal-close" aria-label="Đóng" data-aria-label-t="modal_close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="brand-modal-header">
+      <div class="brand-modal-flag">🇩🇪</div>
+      <div class="brand-modal-name" id="keim-modal-name">KEIM</div>
+      <div class="brand-modal-tagline"></div>
+    </div>
+    <div class="brand-modal-body">
+      <div class="brand-stat-row"></div>
+      <div class="brand-sections"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Insight Modal -->
+<div class="modal-overlay" id="modal-insight" role="dialog" aria-modal="true">
+  <div class="modal modal--md">
+    <button class="modal-close" aria-label="Đóng" data-aria-label-t="modal_close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="insight-modal-img"><div class="img-placeholder" style="min-height:200px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg><p>Ảnh bài viết</p></div></div>
+    <div class="insight-modal-body">
+      <div class="insight-modal-meta">
+        <span class="insight-modal-cat"></span>
+        <span class="insight-modal-date"></span>
+      </div>
+      <h3 class="insight-modal-title"></h3>
+      <p class="insight-modal-subtitle"></p>
+      <div class="insight-modal-content"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ FLOATING BUTTONS ═══ -->
+<div class="floating-btns" aria-label="Quick contact buttons">
+  <a class="float-btn float-btn--zalo" href="https://zalo.me/0862043042" target="_blank" rel="noopener noreferrer" aria-label="Chat Zalo">
+    <div class="float-btn-tooltip">Chat Zalo</div>
+    <img src="assets/images/icon-zalo.png" alt="Zalo" class="float-btn-zalo-img"/>
+  </a>
+  <a class="float-btn" href="tel:+84862043042" aria-label="Gọi ngay">
+    <div class="float-btn-tooltip">Gọi ngay</div>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.17h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.27a16 16 0 0 0 6.29 6.29l1.16-1.16a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
