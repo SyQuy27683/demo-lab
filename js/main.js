@@ -109,6 +109,17 @@ const LANG = {
     cs1_text:'Lâu đài Château de la Mercerie – một trong những công trình kiến trúc cổ điển Pháp – đã được hồi sinh nhờ giải pháp bảo tồn toàn diện từ tập đoàn ALMA F.R.C. Dự án kéo dài 5 năm, áp dụng kỹ thuật vữa cổ, đá tái tạo và lớp phủ bảo vệ đạt chuẩn EPV. LAB héritage là đơn vị chuyển giao công nghệ và cung cấp vật liệu độc quyền tại Việt Nam, giúp giữ nguyên giá trị lịch sử mà vẫn đảm bảo độ bền vững cho thế hệ sau.',
     cs2_text:'Nhà Trắng, biểu tượng quyền lực và lịch sử nước Mỹ, đã lựa chọn sơn khoáng KEIM để bảo vệ các bề mặt ngoại thất. Sản phẩm với công nghệ silic hóa độc quyền giúp tường "thở", chống rêu mốc, chịu được thời tiết khắc nghiệt mà không bong tróc. Hơn 100 năm qua, KEIM vẫn giữ màu sắc nguyên bản. LAB héritage tự hào là đối tác độc quyền mang giải pháp này đến các công trình di sản Việt Nam.',
     pf_featured:'Nổi bật',
+    // Nút tư vấn
+    consult_btn:'Tư vấn ngay',
+    consult_modal_title:'Bắt đầu <em>dự án</em> của bạn',
+    consult_modal_sub:'"Việc tưởng như không thể là công việc hàng ngày của chúng tôi"',
+    consult_label_name:'Họ và tên', consult_label_phone:'Số điện thoại',
+    consult_label_service:'Dịch vụ quan tâm', consult_label_msg:'Nội dung yêu cầu',
+    consult_ph_name:'Họ và tên của bạn', consult_ph_phone:'Số điện thoại',
+    consult_ph_msg:'Mô tả ngắn công trình / yêu cầu...',
+    consult_svc0:'— Chọn dịch vụ —', consult_svc1:'Bảo tồn di sản',
+    consult_svc2:'Phục hồi Villa & Resort', consult_svc3:'Xử lý vật liệu cao cấp', consult_svc4:'Khác',
+    consult_submit:'Gửi yêu cầu tư vấn',
   },
   en: {
     nav_about:'About Us', nav_services:'Services', nav_portfolio:'Portfolio',
@@ -209,6 +220,17 @@ const LANG = {
     cs1_text:'Château de la Mercerie – a classic French architectural masterpiece – was revived through comprehensive conservation solutions from ALMA F.R.C. The 5-year project applied historic mortar, reconstituted stone, and EPV-standard protective coatings. LAB héritage transfers technology and supplies exclusive materials in Vietnam, preserving historical value while ensuring sustainability for future generations.',
     cs2_text:'The White House, an icon of American power and history, chose KEIM mineral paint to protect its exterior surfaces. With exclusive silicification technology, the paint allows walls to breathe, resists algae, withstands harsh weather without peeling. For over 100 years, KEIM has maintained its original color. LAB héritage proudly serves as the exclusive partner bringing this solution to Vietnamese heritage sites.',
     pf_featured:'Featured',
+    // Consult button
+    consult_btn:'Get advice',
+    consult_modal_title:'Start your <em>project</em> today',
+    consult_modal_sub:'"What seems impossible is our everyday work"',
+    consult_label_name:'Full name', consult_label_phone:'Phone number',
+    consult_label_service:'Service of interest', consult_label_msg:'Your message',
+    consult_ph_name:'Your full name', consult_ph_phone:'Phone number',
+    consult_ph_msg:'Brief description of your project / request...',
+    consult_svc0:'— Select a service —', consult_svc1:'Heritage Conservation',
+    consult_svc2:'Villa & Resort Restoration', consult_svc3:'Premium Material Treatment', consult_svc4:'Other',
+    consult_submit:'Send consultation request',
   }
 };
 
@@ -505,6 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initInsightModals();
   initProjectModal();
   initFormSubmit();
+  initConsultBtn();   // ← Nút tư vấn nổi + modal
   setLang('vi');
 });
 
@@ -782,7 +805,131 @@ function openProjectModal(id) {
   openOverlay('project-modal');
 }
 
-// ─── Form Submit ───────────────────────
+// ─── Consult floating button + quick modal ───────────
+function initConsultBtn() {
+  /* 1. Tạo nút tư vấn và thêm vào floating-btns */
+  const floatingWrap = document.querySelector('.floating-btns');
+  if (!floatingWrap) return;
+
+  const consultBtn = document.createElement('button');
+  consultBtn.className = 'float-btn float-btn--consult';
+  consultBtn.id = 'btn-consult';
+  consultBtn.setAttribute('aria-haspopup', 'dialog');
+  consultBtn.setAttribute('aria-controls', 'modal-consult');
+  consultBtn.innerHTML = `
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span class="consult-btn-text" data-t="consult_btn">Tư vấn ngay</span>
+  `;
+  /* Thứ tự: Zalo (đã có) → Phone (đã có) → Tư vấn (thêm cuối)
+     insertBefore firstChild đặt lên đầu → dùng appendChild để đặt xuống cuối */
+  floatingWrap.appendChild(consultBtn);
+
+  /* 2. Tạo modal quick-contact và thêm vào body */
+  const modalEl = document.createElement('div');
+  modalEl.className = 'modal-overlay modal-centered';
+  modalEl.id = 'modal-consult';
+  modalEl.setAttribute('role', 'dialog');
+  modalEl.setAttribute('aria-modal', 'true');
+  modalEl.innerHTML = `
+    <div class="modal modal--md">
+      <button class="modal-close" aria-label="Đóng">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="consult-modal-body">
+        <h3 class="consult-modal-title" data-t="consult_modal_title">
+          Bắt đầu <em>dự án</em> của bạn
+        </h3>
+        <p class="consult-modal-sub" data-t="consult_modal_sub">
+          "Việc tưởng như không thể là công việc hàng ngày của chúng tôi"
+        </p>
+        <form class="consult-form" id="consult-form" novalidate>
+          <div class="consult-form-row">
+            <div>
+              <label data-t="consult_label_name">Họ và tên</label>
+              <input type="text" name="name" required
+                     data-tp="consult_ph_name" placeholder="Họ và tên của bạn"/>
+            </div>
+            <div>
+              <label data-t="consult_label_phone">Số điện thoại</label>
+              <input type="tel" name="phone"
+                     data-tp="consult_ph_phone" placeholder="Số điện thoại"/>
+            </div>
+          </div>
+          <div>
+            <label data-t="consult_label_service">Dịch vụ quan tâm</label>
+            <select name="service">
+              <option value="" data-t="consult_svc0">— Chọn dịch vụ —</option>
+              <option value="heritage" data-t="consult_svc1">Bảo tồn di sản</option>
+              <option value="villa"    data-t="consult_svc2">Phục hồi Villa & Resort</option>
+              <option value="material" data-t="consult_svc3">Xử lý vật liệu cao cấp</option>
+              <option value="other"    data-t="consult_svc4">Khác</option>
+            </select>
+          </div>
+          <div>
+            <label data-t="consult_label_msg">Nội dung yêu cầu</label>
+            <textarea name="message"
+                      data-tp="consult_ph_msg"
+                      placeholder="Mô tả ngắn công trình / yêu cầu..."></textarea>
+          </div>
+          <button type="submit" class="consult-submit" data-t="consult_submit">
+            Gửi yêu cầu tư vấn
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modalEl);
+
+  /* 3. Sự kiện mở/đóng modal */
+  consultBtn.addEventListener('click', () => {
+    /* Áp dụng ngôn ngữ hiện tại cho modal vừa tạo */
+    const t = LANG[currentLang];
+    modalEl.querySelectorAll('[data-t]').forEach(el => {
+      if (t[el.dataset.t] !== undefined) el.innerHTML = t[el.dataset.t];
+    });
+    modalEl.querySelectorAll('[data-tp]').forEach(el => {
+      if (t[el.dataset.tp] !== undefined) el.placeholder = t[el.dataset.tp];
+    });
+    openOverlay('modal-consult');
+  });
+
+  /* Đóng khi click overlay */
+  setupClose('modal-consult');
+
+  /* 4. Submit form mock */
+  modalEl.querySelector('#consult-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.consult-submit');
+    const orig = btn.textContent;
+    btn.textContent = currentLang === 'vi' ? 'Đang gửi...' : 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = currentLang === 'vi' ? '✓ Đã gửi!' : '✓ Sent!';
+      btn.style.cssText = 'background:#2d6a4f;color:#fff;';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.disabled = false;
+        btn.style.cssText = '';
+        e.target.reset();
+        closeOverlay('modal-consult');
+      }, 2500);
+    }, 1200);
+  });
+}
+
+/* Cập nhật nút tư vấn khi chuyển ngữ */
+const _origSetLang = setLang;
+setLang = function(lang) {
+  _origSetLang(lang);
+  /* Cập nhật text nút consult nếu đã tạo */
+  const t = LANG[lang];
+  const consultText = document.querySelector('.consult-btn-text');
+  if (consultText && t.consult_btn) consultText.textContent = t.consult_btn;
+};
 function initFormSubmit() {
   const form = document.getElementById('contact-form');
   if (!form) return;

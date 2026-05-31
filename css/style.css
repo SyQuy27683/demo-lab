@@ -329,6 +329,7 @@ section { padding: 7rem 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* Mobile Nav */
+/* ── Mobile nav: hiển thị đủ tất cả items, cuộn nếu vượt chiều cao ── */
 .mobile-nav {
   display: none;
   position: fixed;
@@ -337,20 +338,38 @@ section { padding: 7rem 0; }
   z-index: 999;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* iOS smooth scroll */
+  -webkit-overflow-scrolling: touch;
+  padding: 5rem 1.5rem 3rem;
+  gap: 0;
 }
 .mobile-nav.open { display: flex; }
 .mobile-nav a {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  /* Giảm font-size từ 2.5rem → 1.9rem để 7 item vừa màn hình */
+  font-size: clamp(1.5rem, 5vw, 1.9rem);
   font-weight: 300;
   color: var(--white);
   letter-spacing: 0.05em;
   transition: var(--transition-fast);
+  /* Touch target ≥ 44px theo WCAG */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.6rem 0;
+  /* Đường kẻ mờ giữa các item */
+  border-bottom: 1px solid rgba(184,150,46,0.08);
 }
-.mobile-nav a:hover { color: var(--gold); }
-.mobile-nav .lang-toggle { margin-top: 1rem; }
+.mobile-nav a:last-of-type { border-bottom: none; }
+.mobile-nav a:hover,
+.mobile-nav a:active { color: var(--gold); }
+.mobile-nav .lang-toggle { margin-top: 1.5rem; flex-shrink: 0; }
 
 /* ═══════════════════════════════════════
    HERO SECTION
@@ -1526,63 +1545,65 @@ footer {
 /* ═══════════════════════════════════════
    FLOATING BUTTONS (Zalo + Phone)
 ═══════════════════════════════════════ */
+/* ── Floating buttons group ── */
 .floating-btns {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   z-index: 500;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
   align-items: flex-end;
 }
 
+/* Base: giảm từ 52px → 44px */
 .float-btn {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   background: var(--gold);
   color: var(--black);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(184,150,46,0.4);
+  box-shadow: 0 3px 14px rgba(184,150,46,0.38);
   transition: var(--transition);
   position: relative;
 }
 .float-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 30px rgba(184,150,46,0.6);
+  transform: scale(1.08);
+  box-shadow: 0 5px 22px rgba(184,150,46,0.55);
 }
-/* Zalo: dùng ảnh JPEG thay SVG — không padding nền vàng */
+/* Zalo image */
 .float-btn--zalo {
   background: transparent;
   box-shadow: none;
   padding: 0;
   overflow: hidden;
 }
-.float-btn--zalo:hover {
-  box-shadow: 0 6px 30px rgba(0,0,0,0.4);
-}
+.float-btn--zalo:hover { box-shadow: 0 5px 22px rgba(0,0,0,0.35); }
+/* Giảm ảnh Zalo từ 52 → 44 */
 .float-btn-zalo-img {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
   flex-shrink: 0;
 }
+/* Tooltip */
 .float-btn-tooltip {
   position: absolute;
-  right: 60px;
+  right: 52px;
   white-space: nowrap;
   background: var(--gold);
   color: var(--black);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.7rem;
   opacity: 0;
   pointer-events: none;
   transition: var(--transition-fast);
@@ -1590,38 +1611,219 @@ footer {
 .float-btn:hover .float-btn-tooltip { opacity: 1; }
 
 
-/* ═══════════════════════════════════════
-   PARTNER HIGHLIGHT BOX (About section)
-═══════════════════════════════════════ */
-.partner-highlight {
-  margin-top: 2.5rem;
+/* ── Floating consult button + quick modal ── */
+
+/* ── Nút Tư vấn ngay — gọn hơn, nằm dưới cùng ── */
+.float-btn--consult {
+  width: auto;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 1.1rem;
   background: var(--gold);
   color: var(--black);
-  padding: 1.6rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  box-shadow: 0 3px 14px rgba(184,150,46,0.42),
+              0 0 0 0 rgba(184,150,46,0.25);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: consultPulse 3s ease-in-out infinite;
+}
+.float-btn--consult:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 22px rgba(184,150,46,0.58);
+  animation: none;
+}
+@keyframes consultPulse {
+  0%, 100% { box-shadow: 0 3px 14px rgba(184,150,46,0.42), 0 0 0 0 rgba(184,150,46,0.25); }
+  60%       { box-shadow: 0 3px 14px rgba(184,150,46,0.42), 0 0 0 7px rgba(184,150,46,0); }
+}
+/* Mobile: vẫn đủ 40px touch target */
+@media (max-width: 640px) {
+  .float-btn--consult { height: 40px; font-size: 0.6rem; padding: 0 0.9rem; }
+  .floating-btns { bottom: 1rem; right: 1rem; }
+}
+
+/* ── Quick-contact modal ── */
+#modal-consult {
+  /* Dùng lại modal-overlay class chuẩn của site */
+}
+.consult-modal-body {
+  padding: 2.5rem;
+}
+.consult-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 0.4rem;
+  color: var(--white);
+}
+.consult-modal-title em { font-style: italic; color: var(--gold); }
+.consult-modal-sub {
+  font-size: 0.78rem;
+  color: rgba(245,242,236,0.45);
+  margin-bottom: 1.8rem;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+/* Form nhanh trong modal */
+.consult-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.consult-form input,
+.consult-form textarea,
+.consult-form select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,150,46,0.2);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.85rem 1.1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  border-radius: 2px;
+  width: 100%;
+}
+.consult-form input:focus,
+.consult-form textarea:focus,
+.consult-form select:focus {
+  border-color: var(--gold);
+  background: rgba(184,150,46,0.05);
+}
+.consult-form textarea { resize: none; min-height: 90px; }
+.consult-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.consult-form label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.4);
+  margin-bottom: 0.35rem;
+}
+.consult-submit {
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  border-radius: 2px;
+  width: 100%;
+  margin-top: 0.25rem;
+}
+.consult-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+@media (max-width: 480px) {
+  .consult-form-row { grid-template-columns: 1fr; }
+}
+/* ── Partner highlight: nổi bật tĩnh, pulse nhẹ, không hover effect ── */
+.partner-highlight {
+  margin-top: 2.5rem;
+  /* Nền gradient vàng đậm hơn, kết hợp lớp shimmer */
+  background: linear-gradient(135deg,
+    rgba(184,150,46,0.22) 0%,
+    rgba(184,150,46,0.10) 50%,
+    rgba(184,150,46,0.18) 100%
+  );
+  color: var(--white);
+  padding: 1.5rem 1.8rem 1.5rem 2rem;
   display: flex;
   align-items: center;
   gap: 1.2rem;
   cursor: default;
-  transition: var(--transition);
-  border: 2px solid transparent;
   position: relative;
   overflow: hidden;
+  /* Border trái dày + border phải mỏng tạo chiều sâu */
+  border-left: 5px solid var(--gold);
+  border-right: 1px solid rgba(184,150,46,0.3);
+  border-top: 1px solid rgba(184,150,46,0.35);
+  border-bottom: 1px solid rgba(184,150,46,0.2);
+  /* Pulse kết hợp đổi nền + glow 3s */
+  animation: partnerPulse 3s ease-in-out infinite;
 }
+
+/* Shimmer sweep qua nền mỗi 3s */
 .partner-highlight::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: var(--black);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: var(--transition);
+  top: 0; left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(212,175,90,0.18) 50%,
+    transparent 60%
+  );
+  animation: partnerShimmer 3s ease-in-out infinite;
+  pointer-events: none;
   z-index: 0;
 }
-.partner-highlight:hover::before { transform: scaleX(1); }
-.partner-highlight:hover { border-color: var(--gold); color: var(--gold); }
+.partner-highlight:hover::before { animation-play-state: paused; }
+.partner-highlight:hover { color: var(--white); }
 .partner-highlight > * { position: relative; z-index: 1; }
+
+/* Icon trang trí góc phải */
+.partner-highlight::after {
+  content: '✦';
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: rgba(184,150,46,0.4);
+  pointer-events: none;
+  animation: partnerStar 3s ease-in-out infinite;
+}
+
+@keyframes partnerPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(184,150,46,0),
+                inset 0 0 0 0 rgba(184,150,46,0);
+    background: linear-gradient(135deg,
+      rgba(184,150,46,0.22) 0%,
+      rgba(184,150,46,0.10) 50%,
+      rgba(184,150,46,0.18) 100%
+    );
+  }
+  50% {
+    box-shadow: 0 0 24px 6px rgba(184,150,46,0.22),
+                inset 0 0 20px 0 rgba(184,150,46,0.06);
+    background: linear-gradient(135deg,
+      rgba(184,150,46,0.30) 0%,
+      rgba(184,150,46,0.15) 50%,
+      rgba(184,150,46,0.26) 100%
+    );
+  }
+}
+@keyframes partnerShimmer {
+  0%   { left: -120%; opacity: 0; }
+  20%  { opacity: 1; }
+  60%  { left: 160%; opacity: 0; }
+  100% { left: 160%; opacity: 0; }
+}
+@keyframes partnerStar {
+  0%, 100% { opacity: 0.35; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 0.75; transform: translateY(-50%) scale(1.3); }
+}
+
 .partner-highlight-flags {
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   line-height: 1;
   flex-shrink: 0;
   display: flex;
@@ -1629,10 +1831,13 @@ footer {
 }
 .partner-highlight-text {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  color: rgba(245,242,236,0.95);
+  /* Text-shadow cực nhẹ để chữ nổi trên nền gradient */
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .partner-highlight-text em {
   font-style: normal;
@@ -1641,6 +1846,9 @@ footer {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: 0.02em;
+  color: var(--gold);
+  margin-bottom: 0.15rem;
+  text-shadow: 0 0 12px rgba(184,150,46,0.35);
 }
 
 /* Brand buttons (ALMA + KEIM) */
