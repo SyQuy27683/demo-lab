@@ -13,6 +13,7 @@ const LANG = {
   vi: {
     nav_about:'Về Chúng Tôi', nav_services:'Dịch Vụ', nav_portfolio:'Dự Án',
     nav_insights:'Kiến Thức', nav_contact:'Liên Hệ', nav_standards:'Chuẩn Mực',
+    nav_partners:'Đối Tác',
     hero_eyebrow:'LAB héritage — Conserver la beauté',
     hero_title:'Phục dựng <em>Ký ức Di sản</em><br>– Kiến trúc',
     /* 3 phần riêng cho hero-title */
@@ -84,6 +85,14 @@ const LANG = {
     ft_desc:'Đơn vị tiên phong phục dựng – phục chế di sản, công trình kiến trúc và vật phẩm cao cấp theo chuẩn Châu Âu tại Việt Nam.',
     ft_nav:'Điều Hướng', ft_svc:'Dịch Vụ', ft_contact:'Liên Hệ',
     ft_copy:'© 2025 LAB héritage. Bảo lưu mọi quyền.',
+    // Partners & Clients
+    pc_label:'Đối Tác & Khách Hàng',
+    pc_title:'Tin tưởng của <em>những thương hiệu</em> hàng đầu',
+    pc_subtitle:'Cùng với 5.000+ khách hàng cá nhân của chúng tôi.',
+    pc_sector1:'Di Sản Văn Hoá',
+    pc_sector2:'Công Trình Kiến Trúc',
+    pc_sector3:'Du Thuyền & Ô Tô',
+    pc_sector4:'Thời Trang Cao Cấp',
     // UI labels
     modal_close:'Đóng',
     tooltip_zalo:'Chat Zalo',
@@ -104,6 +113,7 @@ const LANG = {
   en: {
     nav_about:'About Us', nav_services:'Services', nav_portfolio:'Portfolio',
     nav_insights:'Insights', nav_contact:'Contact', nav_standards:'Standards',
+    nav_partners:'Partners',
     hero_eyebrow:'LAB héritage — Conserver la beauté',
     hero_title:'Reviving <em>Memory</em><br>Heritage – Architecture',
     /* 3 parts for hero-title */
@@ -175,6 +185,14 @@ const LANG = {
     ft_desc:'Vietnam\'s pioneer in authentic restoration of heritage sites, architectural structures, and luxury assets to European standards.',
     ft_nav:'Navigation', ft_svc:'Services', ft_contact:'Contact',
     ft_copy:'© 2025 LAB héritage. All rights reserved.',
+    // Partners & Clients
+    pc_label:'Partners & Clients',
+    pc_title:'Trusted by <em>world-leading</em> brands',
+    pc_subtitle:'Along with 5,000+ individual clients.',
+    pc_sector1:'Cultural Heritage',
+    pc_sector2:'Architecture',
+    pc_sector3:'Yachts & Automobiles',
+    pc_sector4:'Luxury Fashion',
     // UI labels
     modal_close:'Close',
     tooltip_zalo:'Chat Zalo',

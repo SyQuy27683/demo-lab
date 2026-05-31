@@ -1098,15 +1098,25 @@ section { padding: 7rem 0; }
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(17,18,16,0.9) 0%, transparent 50%);
-  opacity: 0;
+  /* Luôn hiển thị — gradient từ dưới lên che ~60% card */
+  background: linear-gradient(to top,
+    rgba(17,18,16,0.95) 0%,
+    rgba(17,18,16,0.6) 45%,
+    transparent 75%);
+  opacity: 1;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
 }
-.project-card:hover .project-overlay { opacity: 1; }
+/* Hover: tối thêm để tên nổi bật hơn */
+.project-card:hover .project-overlay {
+  background: linear-gradient(to top,
+    rgba(17,18,16,0.98) 0%,
+    rgba(17,18,16,0.75) 55%,
+    transparent 80%);
+}
 
 .project-cat {
   font-size: 0.6rem;
@@ -1697,11 +1707,7 @@ footer {
   transition: transform 0.2s ease;
 }
 .brand-btn:hover .brand-btn-arrow { transform: translateX(3px); }
-/* Mobile: stack 2 buttons */
-@media (max-width: 640px) {
-  .brand-buttons--full { flex-direction: column; }
-  .brand-buttons--full .brand-btn { flex: none; width: 100%; }
-}
+/* Brand buttons mobile: handled in 1024px block above */
 
 /* ═══════════════════════════════════════
    STANDARDS SECTION
@@ -2238,6 +2244,121 @@ footer {
 .reveal-delay-5 { transition-delay: 0.5s; }
 
 /* ═══════════════════════════════════════
+   PARTNERS & CLIENTS SECTION
+═══════════════════════════════════════ */
+#partners-clients {
+  padding: 7rem 0;
+  background: linear-gradient(180deg, rgba(13,14,12,0.5) 0%, rgba(17,18,16,0.3) 100%);
+}
+.pc-subtitle {
+  font-size: 0.88rem;
+  color: rgba(245,242,236,0.55);
+  margin-top: -0.5rem;
+  margin-bottom: 3.5rem;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+/* Grid: desktop 4 cột */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 2.5rem;
+  margin-bottom: 3.5rem;
+}
+/* Item: logo + tên */
+.pc-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+.pc-item:hover { transform: translateY(-4px); }
+/* Khung logo */
+.pc-logo-wrap {
+  width: 140px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245,242,236,0.04);
+  border: 1px solid rgba(184,150,46,0.15);
+  padding: 1rem 1.2rem;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.pc-item:hover .pc-logo-wrap {
+  border-color: rgba(184,150,46,0.45);
+  background: rgba(245,242,236,0.07);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+/* Ảnh logo thật */
+.pc-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(20%);
+  opacity: 0.85;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.pc-item:hover .pc-logo-img { filter: grayscale(0%); opacity: 1; }
+/* Placeholder SVG */
+.pc-logo-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(184,150,46,0.35);
+}
+/* Tên đối tác */
+.pc-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(245,242,236,0.75);
+  text-align: center;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+.pc-item:hover .pc-name { color: var(--gold); }
+/* Tên phụ */
+.pc-sub {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.28);
+  text-align: center;
+}
+/* Dòng ngành nghề */
+.pc-sectors { display: none; }
+.pc-sector {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.42);
+}
+.pc-sector-dot {
+  color: var(--gold);
+  opacity: 0.45;
+  font-size: 0.8rem;
+}
+/* Responsive: tablet 3 cột */
+@media (max-width: 1024px) {
+  .pc-grid { grid-template-columns: repeat(3, 1fr); }
+}
+/* Responsive: mobile 2 cột */
+@media (max-width: 640px) {
+  .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .pc-logo-wrap { width: 110px; height: 72px; }
+  .pc-sectors { flex-direction: column; align-items: center; gap: 0.4rem; }
+  .pc-sector-dot { display: none; }
+}
+
+/* ═══════════════════════════════════════
    KEYFRAMES
 ═══════════════════════════════════════ */
 @keyframes fadeUp {
@@ -2256,8 +2377,16 @@ footer {
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
+  /* About: 1 cột, ảnh wrap gọn lại */
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-img-wrap { max-width: 500px; }
+  .about-img-wrap {
+    /* Bỏ max-width cứng — chiếm full width cột */
+    max-width: 100%;
+    /* Giảm padding-bottom vì ảnh phụ nhỏ hơn */
+    padding-bottom: 4rem;
+    padding-right: 0;
+  }
+  .about-img-main { min-height: unset; aspect-ratio: 16/9; }
 
   .services-header { grid-template-columns: 1fr; gap: 1rem; }
   .services-grid { grid-template-columns: 1fr 1fr; }
@@ -2278,6 +2407,10 @@ footer {
   .ba-slider-container { min-height: 350px; }
 
   .standards-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Brand buttons: tablet — stack dọc sớm hơn */
+  .brand-buttons--full { flex-direction: column; gap: 0.75rem; }
+  .brand-buttons--full .brand-btn { flex: none; width: 100%; }
 }
 
 @media (max-width: 640px) {
@@ -2297,6 +2430,12 @@ footer {
 
   .about-features { grid-template-columns: 1fr; }
   .modal-sections { grid-template-columns: 1fr; }
+
+  /* About mobile: ảnh phụ ẩn đi, badge nhỏ hơn, padding reset */
+  .about-img-wrap { padding-bottom: 0; padding-left: 0; }
+  .about-img-accent { display: none; }
+  .about-gold-badge { transform: none; top: 0.75rem; left: 0.75rem; }
+  .about-img-main { aspect-ratio: 4/3; min-height: unset; }
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .standards-grid { grid-template-columns: 1fr 1fr; }
