@@ -707,85 +707,132 @@ section { padding: 7rem 0; }
   align-items: center;
 }
 
+/* ── About image stack layout ── */
 .about-img-wrap {
   position: relative;
-  /* Tăng padding dưới để ảnh phụ có chỗ nhô ra */
-  padding-bottom: 5rem;
-  padding-right: 1rem;
-  padding-left: 0.5rem;
-  /* Chiều rộng tối đa toàn bộ cột trái */
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
+
+/* Ảnh chính 1 */
 .about-img-main {
-  /* Tăng kích thước: chiếm toàn bộ chiều rộng cột, aspect-ratio rộng hơn */
   width: 100%;
-  /* 4/3 thay 3/2 → ảnh cao hơn, to hơn */
   aspect-ratio: 4/3;
-  min-height: 380px;
   overflow: hidden;
-  border: 1px solid rgba(184,150,46,0.1);
+  border-radius: 3px 3px 0 0;
+  border: 1px solid rgba(184,150,46,0.15);
+  border-bottom: none;
   position: relative;
   z-index: 1;
 }
-/* Ảnh thật bên trong .about-img-main và .about-img-accent */
 .about-img-main img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
   transition: transform 0.6s ease;
 }
-.about-img-main:hover img { transform: scale(1.03); }
-.about-img-accent {
-  position: absolute;
-  /* Overlap 5% phía dưới ảnh chính:
-     bottom = padding-bottom - (5% chiều cao ảnh chính ≈ height × 0.05)
-     Dùng calc: padding-bottom=5rem, overlap ~5% của aspect 3/2
-     → bottom: calc(5rem - 5%) */
-  bottom: calc(0.5rem - 0.5%);
-  right: 0;
-  width: 32%;
-  aspect-ratio: 4/3;
-  border: 4px solid var(--black);
-  overflow: hidden;
-  box-shadow: 0 0 0 2px rgba(184,150,46,0.4);
-  z-index: 3;
+.about-img-main:hover img { transform: scale(1.02); }
+
+/* Connector: thanh nối giữa 2 ảnh chứa badge */
+.about-img-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background: rgba(17,18,16,0.96);
+  border-left: 1px solid rgba(184,150,46,0.15);
+  border-right: 1px solid rgba(184,150,46,0.15);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
-.about-img-accent img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* Đường kẻ ngang hai bên badge */
+.connector-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(184,150,46,0.25) 30%,
+    rgba(184,150,46,0.55) 100%
+  );
 }
-/* Badge "5+ năm kinh nghiệm" — nhỏ gọn, ghim góc trái */
+.connector-line:last-child {
+  background: linear-gradient(270deg,
+    transparent 0%,
+    rgba(184,150,46,0.25) 30%,
+    rgba(184,150,46,0.55) 100%
+  );
+}
+
+/* Badge tròn "5+" — nằm chính giữa connector */
 .about-gold-badge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* Nhô ra ngoài cạnh trái một chút */
-  transform: translateX(-0.5rem);
+  position: relative;
+  top: auto; bottom: auto; left: auto;
+  transform: none;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
   background: var(--gold);
   color: var(--black);
-  padding: 0.5rem 0.85rem;   /* nhỏ hơn padding cũ 0.8/1.2 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   z-index: 3;
-  /* Viền nhỏ để không nặng */
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.35);
+  box-shadow:
+    0 0 0 3px rgba(17,18,16,0.96),
+    0 0 0 5px rgba(184,150,46,0.28),
+    0 6px 20px rgba(0,0,0,0.5);
+  padding: 0;
 }
 .about-gold-badge strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.3rem;          /* nhỏ hơn 2rem cũ */
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   line-height: 1;
 }
 .about-gold-badge span {
-  font-size: 0.52rem;         /* nhỏ hơn 0.6rem cũ */
+  font-size: 0.36rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.35;
+  max-width: 54px;
+  text-align: center;
+  white-space: normal;
 }
+
+/* Ảnh chính 2 */
+.about-img-secondary {
+  width: 100%;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid rgba(184,150,46,0.15);
+  border-top: none;
+  position: relative;
+  z-index: 1;
+}
+.about-img-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.about-img-secondary:hover img { transform: scale(1.02); }
+.about-img-secondary .img-placeholder { min-height: 200px; border: none; }
+
+/* about-img-accent: không còn dùng — ẩn nếu vẫn còn trong DOM */
+.about-img-accent { display: none; }
 
 .about-text p {
   color: rgba(245,242,236,0.65);
@@ -2377,16 +2424,13 @@ footer {
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  /* About: 1 cột, ảnh wrap gọn lại */
+  /* About: 1 cột, ảnh stack giữ nguyên layout dọc */
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-img-wrap {
-    /* Bỏ max-width cứng — chiếm full width cột */
-    max-width: 100%;
-    /* Giảm padding-bottom vì ảnh phụ nhỏ hơn */
-    padding-bottom: 4rem;
-    padding-right: 0;
-  }
-  .about-img-main { min-height: unset; aspect-ratio: 16/9; }
+  .about-img-wrap { max-width: 100%; }
+  .about-img-main { aspect-ratio: 16/9; }
+  .about-img-secondary { aspect-ratio: 16/6; }
+  .about-img-connector { height: 52px; }
+  .about-gold-badge { width: 66px; height: 66px; }
 
   .services-header { grid-template-columns: 1fr; gap: 1rem; }
   .services-grid { grid-template-columns: 1fr 1fr; }
@@ -2431,11 +2475,12 @@ footer {
   .about-features { grid-template-columns: 1fr; }
   .modal-sections { grid-template-columns: 1fr; }
 
-  /* About mobile: ảnh phụ ẩn đi, badge nhỏ hơn, padding reset */
-  .about-img-wrap { padding-bottom: 0; padding-left: 0; }
-  .about-img-accent { display: none; }
-  .about-gold-badge { transform: none; top: 0.75rem; left: 0.75rem; }
-  .about-img-main { aspect-ratio: 4/3; min-height: unset; }
+  /* About mobile: thu nhỏ badge và connector */
+  .about-img-main { aspect-ratio: 4/3; }
+  .about-img-secondary { aspect-ratio: 16/9; }
+  .about-img-connector { height: 48px; }
+  .about-gold-badge { width: 58px; height: 58px; }
+  .about-gold-badge strong { font-size: 1rem; }
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .standards-grid { grid-template-columns: 1fr 1fr; }
